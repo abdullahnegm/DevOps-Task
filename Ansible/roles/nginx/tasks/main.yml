@@ -63,6 +63,11 @@
   template:
     dest: /etc/nginx/nginx.conf.default
     src: nginx.conf
+    
+- name: copy nginx.conf
+  template:
+    dest: /etc/nginx/nginx.conf
+    src: nginx.conf
 
 - name: From here to the end a work around for ubuntu bug
   copy:
