@@ -10,7 +10,6 @@ add Jenkinsfile to build the project, create an image from the Dockerfile , publ
 
 *Install Nginx, Docker, Jenkins, certvot*
 
-![alt text](https://ibb.co/ZYTYMBr)
 ![Screenshot](imgs/111.PNG)
 
 
