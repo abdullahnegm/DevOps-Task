@@ -11,37 +11,38 @@ add Jenkinsfile to build the project, create an image from the Dockerfile , publ
 *Install Nginx, Docker, Jenkins, certvot*
 
 ![alt text](https://ibb.co/ZYTYMBr)
+![Screenshot](imgs/111.PNG)
 
 
 
 *Multi-branch Jenkins file Configurations*
 
-![alt text](https://ibb.co/87V98QK)
+![Screenshot](imgs/222.PNG)
 
-![alt text](https://ibb.co/D7WrZZD)
+![Screenshot](imgs/333.PNG)
 
 
 
 *Multi-branch pipeline result*
 
-![alt text](https://ibb.co/W2nbN4Y)
+![Screenshot](imgs/444.PNG)
 
 
 *Docker containers before running ansible playbook*
 
-![alt text](https://ibb.co/kQY1QPr)
+![Screenshot](imgs/before.PNG)
 
 
 *ٌRun docker container using ansible*
 
-![alt text](https://ibb.co/KmpgGfs)
+![Screenshot](imgs/ansibleContainer.PNG)
 
 
 *Docker containers After running ansible playbook*
 
-![alt text](https://ibb.co/r6Krngn)
+![Screenshot](imgs/after.PNG)
 
 
 *Nginx redirects traffic from port 80 to application port [1234]*
 
-![alt text](https://ibb.co/XC3BxQx)
+![Screenshot](imgs/site80.PNG)
