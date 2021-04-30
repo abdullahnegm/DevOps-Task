@@ -1,0 +1,8 @@
+---
+# vars file for docker
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release

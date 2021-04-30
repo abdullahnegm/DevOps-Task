@@ -1,0 +1,80 @@
+
+- name: update cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: make nginx libs directory
+  file:
+    path: "{{ home_dir }}"
+    state: directory
+
+- name: download nginx source file
+  get_url:
+    url: "http://nginx.org/download/{{ nginx_version }}.tar.gz"
+    dest: "{{ home_dir }}"
+    owner: ubuntu
+       
+- name: unarchivee files
+  unarchive:
+    src: "{{ home_dir }}/{{ nginx_version }}.tar.gz"
+    dest: "{{ home_dir }}"
+    remote_src: yes
+    creates: "{{ home_dir }}/{{ nginx_version }}"
+  register: unarchived
+    
+- name: download 
+  apt:
+    name: "{{ item }}"
+  with_items: 
+    - build-essential
+    - libpcre3
+    - libpcre3-dev
+    - zlib1g
+    - zlib1g-dev
+    - libssl-dev
+       
+- name: compiling source file
+  command: ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
+  args:
+    chdir: "{{ home_dir }}/{{ nginx_version }}"
+  when: unarchived.changed
+        
+- name: compile source
+  make: 
+    chdir: "{{ home_dir }}/{{ nginx_version }}"
+    
+- name: install compiled source
+  make:
+    chdir: "{{ home_dir }}/{{ nginx_version }}"
+    target: install
+
+- name: create dir for nginx service
+  file:
+    path: /etc/systemd/system/nginx.service.d
+    state: directory
+
+- name: copy nginx service
+  template:
+    src: nginx.service
+    dest: /lib/systemd/system/nginx.service
+
+- name: copy nginx.conf [ redirect users from nginx port to container port ]
+  template:
+    dest: /etc/nginx/nginx.conf.default
+    src: nginx.conf
+
+- name: From here to the end a work around for ubuntu bug
+  copy:
+    src: override.conf
+    dest: /etc/systemd/system/nginx.service.d
+
+- name: restart nginx
+  systemd: 
+    daemon_reload: yes
+
+- name: restarted
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
