@@ -1,4 +1,4 @@
-- name: try new stuff
+- name: try new stuff [ Commands may be deprecated ]
   hosts: aws
   become: yes
 
