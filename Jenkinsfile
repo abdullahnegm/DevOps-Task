@@ -23,7 +23,9 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-            ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, inventory: 'Ansible/inventory', playbook: 'Ansible/container.yml'
+            sshagent(['main-key']) {
+                ansiblePlaybook(credentialsId: 'main-key', inventory: 'Ansible/inventory', playbook: 'Ansible/playbook.yml')
+            }
             }
         }
     }
