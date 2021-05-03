@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Project cloning') {
             steps {
+                sh "whoami"
                 git 'https://github.com/abdullahnegm/DevOps-Task'
             }
         }
