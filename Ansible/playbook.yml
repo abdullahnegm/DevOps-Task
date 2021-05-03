@@ -8,6 +8,7 @@
         update_cache: yes
 
   roles:
+    - ansible
     - nginx
     - docker
     - jenkins
