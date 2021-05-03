@@ -20,5 +20,10 @@ pipeline {
                 }
             }
         }
+        stage('Create Container') {
+            steps {
+                ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, inventory: './inventory', limit: 'aws', playbook: './playbook.yml'
+            }
+        }
     }
 }
