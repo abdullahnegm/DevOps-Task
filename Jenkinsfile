@@ -23,9 +23,7 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-            sshagent(['main-key']) {
-                ansiblePlaybook(credentialsId: 'main-key', inventory: 'Ansible/inventory', playbook: 'Ansible/playbook.yml')
-            }
+                ansiblePlaybook(credentialsId: 'main-key', inventory: 'Ansible/inventory', playbook: 'Ansible/playbook.yml')            
             }
         }
     }
