@@ -24,5 +24,3 @@
     docker_container:
       name: nodeapp
       image: respect1/nodeapp
-      ports:
-        - "1234:8080"
