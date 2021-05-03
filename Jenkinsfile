@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-                ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, inventory: './inventory', limit: 'aws', playbook: './playbook.yml'
+                ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, inventory: './Ansible/inventory', limit: 'aws', playbook: './Ansible/playbook.yml'
             }
         }
     }
