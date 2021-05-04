@@ -25,4 +25,4 @@
       name: nodeapp
       image: respect1/nodeapp
       ports:
-        - "1234:80"
+        - "1234:8080"

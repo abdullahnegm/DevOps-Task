@@ -8,6 +8,6 @@ COPY simpleNodeApp/* ./
 
 RUN npm install
 
-EXPOSE 1234
+EXPOSE 8080
 
 CMD [ "node", "index.js" ]
