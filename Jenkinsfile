@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-                ansiblePlaybook become: true, credentialsId: 'machine-key', inventory: 'Ansible/inventory', playbook: 'Ansible/container.yml'
+                sh 'ansible-playbook Ansible/container.yml'
             }
         }
     }
