@@ -1,2 +1,2 @@
 [aws]
-54.234.232.122 ansible_user=ubuntu ansible_ssh_private_key_file=~/Backup/main.pem
+34.204.11.97 ansible_user=ubuntu ansible_ssh_private_key_file=~/Backup/main.pem
