@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-            ansiblePlaybook inventory: 'Ansible/inventory', playbook: 'Ansible/playbook.yml'
+            sh 'ansible-playbook Ansible/playbook'
             }
         }
     }
