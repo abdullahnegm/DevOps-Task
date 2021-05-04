@@ -3,6 +3,7 @@
 - name: used to run nodejs docker containers 
   hosts: localhost
   connection: local
+  become_user: ubuntu
   become: yes
  
   pre_tasks:
