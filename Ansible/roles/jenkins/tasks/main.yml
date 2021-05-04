@@ -32,3 +32,10 @@
   ansible.builtin.file:
     path: /var/run/docker.sock
     owner: jenkins
+
+- name: dont ask for password when login to jenkins
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^jenkins ALL'
+    line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
