@@ -1,7 +1,7 @@
 ---
 
 - name: used to run nodejs docker containers 
-  hosts: localhost
+  hosts: local
   connection: local
   become: yes
  
