@@ -1,0 +1,32 @@
+- name: DevOps Task
+  become: yes
+  hosts: aws
+
+  pre_tasks:
+    - name: Update apt cache 
+      apt:
+        update_cache: yes
+
+  roles:
+    - ansible
+    - nginx
+    - docker
+    - jenkins
+    - ufw
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

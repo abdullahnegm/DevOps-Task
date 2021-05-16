@@ -1,0 +1,30 @@
+- name: trial
+  hosts: local
+  become: yes
+
+  pre_tasks:
+    - name: update repo
+      apt:
+        update_cache: yes
+
+  tasks:
+    - name: Enable Nodejs repl
+      get_url: 
+        url: https://deb.nodesource.com/setup_12.x 
+        dest: /tmp/nodeJSbinary
+        mode: "u+x"
+
+    #handled
+    - name: excute 
+      shell: /tmp/nodeJSbinary
+
+    - name: remove installation script
+      file:
+        path: /tmp/nodeJSbinary
+        state: absent
+
+    - name: update repo
+      apt:
+        name: nodejs
+        state: present
+

@@ -1,0 +1,29 @@
+---
+
+- name: used to run nodejs docker containers 
+  hosts: localhost
+  connection: local
+  become: yes
+ 
+  pre_tasks:
+    - name: update cache 
+      apt:
+        update_cache: yes
+
+  tasks:
+  - name: install pip
+    apt:
+      name: python3-pip
+      state: present
+
+  - name: install docker-py
+    pip:
+      name: docker-py
+ 
+  - name: start container
+    docker_container:
+      name: nodeapp
+      image: respect1/nodeapp
+      state: started
+      ports:
+        - "1234:8080"

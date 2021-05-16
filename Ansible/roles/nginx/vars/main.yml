@@ -1,0 +1,7 @@
+---
+
+home_dir: /home/ubuntu/nginx
+nginx_version: nginx-1.19.6
+pid: /var/run/nginx.pid
+start: /usr/bin/nginx
+appPort: 1234
